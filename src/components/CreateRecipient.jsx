@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { createRecipient } from '../logic/recipientLogic';
-import { TextField, Button } from '@material-ui/core';
+import { TextField, Button } from '@mui/material';
 
 const CreateRecipient = () => {
     const [name, setName] = useState('');

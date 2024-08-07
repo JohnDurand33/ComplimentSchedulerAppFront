@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getRecipients } from '../logic/recipientLogic';
-import { Card, CardContent, CardMedia, Typography, Button } from '@material-ui/core';
+import { Card, CardContent, CardMedia, Typography, Button } from '@mui/material';
 import { useHistory } from 'react-router-dom';
 
 const Dashboard = () => {
@@ -24,7 +24,7 @@ const Dashboard = () => {
             <h1>Dashboard</h1>
             <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                 {recipients.map(recipient => (
-                    <Card key={recipient.id} style={{ margin: 10, width: 200 }}>
+                    <Card key={recipient.id} sx={{ margin: 2, width: 200 }}>
                         <CardMedia
                             component="img"
                             alt={recipient.name}
@@ -38,7 +38,7 @@ const Dashboard = () => {
                         </CardContent>
                     </Card>
                 ))}
-                <Card style={{ margin: 10, width: 200 }}>
+                <Card sx={{ margin: 2, width: 200 }}>
                     <CardMedia
                         component="img"
                         alt="Add Recipient"

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { loginUser } from '../logic/authLogic';
-import { TextField, Button } from '@material-ui/core';
+import { TextField, Button } from '@mui/material';
 import { useHistory } from 'react-router-dom';
 import { useAuth } from '../App';
 

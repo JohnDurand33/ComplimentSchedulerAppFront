@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { TextField, Button } from '@material-ui/core';
+import { TextField, Button } from '@mui/material';
 import { getRecipients, updateRecipient } from '../logic/recipientLogic';
 
 const RecipientView = () => {
@@ -23,16 +23,16 @@ const RecipientView = () => {
     if (!recipient) return <div>Loading...</div>;
 
     return (
-            <div>
-                <h1>View Recipient</h1>
-                <TextField label="Name" value={recipient.name} onChange={(e) => setRecipient({ ...recipient, name: e.target.value })} />
-                <TextField label="Relationship" value={recipient.relationship} onChange={(e) => setRecipient({ ...recipient, relationship: e.target.value })} />
-                <TextField label="Email" value={recipient.email} onChange={(e) => setRecipient({ ...recipient, email: e.target.value })} />
-                <TextField label="Address" value={recipient.address} onChange={(e) => setRecipient({ ...recipient, address: e.target.value })} />
-                <TextField label="Avatar URL" value={recipient.avatar} onChange={(e) => setRecipient({ ...recipient, avatar: e.target.value })} />
-                <Button onClick={handleUpdate} variant="contained" color="primary">Update Recipient</Button>
-            </div>
-            );
+        <div>
+            <h1>View Recipient</h1>
+            <TextField label="Name" value={recipient.name} onChange={(e) => setRecipient({ ...recipient, name: e.target.value })} />
+            <TextField label="Relationship" value={recipient.relationship} onChange={(e) => setRecipient({ ...recipient, relationship: e.target.value })} />
+            <TextField label="Email" value={recipient.email} onChange={(e) => setRecipient({ ...recipient, email: e.target.value })} />
+            <TextField label="Address" value={recipient.address} onChange={(e) => setRecipient({ ...recipient, address: e.target.value })} />
+            <TextField label="Avatar URL" value={recipient.avatar} onChange={(e) => setRecipient({ ...recipient, avatar: e.target.value })} />
+            <Button onClick={handleUpdate} variant="contained" color="primary">Update Recipient</Button>
+        </div>
+    );
 };
 
-            export default RecipientView;
+export default RecipientView;

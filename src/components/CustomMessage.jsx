@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import { TextField, Button, FormControlLabel, Checkbox } from '@mui/material';
 import { sendEmail } from '../logic/sendLogic';
-import { TextField, Button, FormControlLabel, Checkbox } from '@material-ui/core';
 
 const CustomMessage = () => {
     const [email, setEmail] = useState('');
@@ -17,7 +17,7 @@ const CustomMessage = () => {
         <div>
             <h1>Send Custom Message</h1>
             <TextField label="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-            <TextField label="Message" value={message} onChange={(e) => setMessage(e.target.value)} multiline rows={10} />
+            <TextField label="Message" value={message} onChange={(e) => setMessage(e.target.value)} multiline rows={4} />
             <FormControlLabel
                 control={<Checkbox checked={sendEmailChecked} onChange={(e) => setSendEmailChecked(e.target.checked)} />}
                 label="Send Email"
