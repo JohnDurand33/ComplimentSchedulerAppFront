@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { loginUser } from '../logic/authLogic';
+import { loginUser, logoutUser } from '../logic/authLogic';
 import { TextField, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../App';
@@ -12,9 +12,10 @@ const Login = () => {
 
     const handleLogin = async () => {
         try {
+            logoutUser();
             const data = await loginUser(email, password);
             setSession(data.token);
-            Navigate.push('/dashboard');
+            navigate('/dashboard');
         } catch (error) {
             console.error(error);
         }

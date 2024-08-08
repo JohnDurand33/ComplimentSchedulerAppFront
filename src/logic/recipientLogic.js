@@ -1,5 +1,11 @@
+// logic/recipientLogic.js
+import { getUserSession } from "../utils/session";
+
 export const createRecipient = async (recipient) => {
-    const token = sessionStorage.getItem("userSession");
+    const session = getUserSession();
+    const token = session?.token;
+    if (!token) throw new Error("No token found");
+
     const response = await fetch("http://localhost:5000/recipients", {
         method: "POST",
         headers: {
@@ -15,7 +21,10 @@ export const createRecipient = async (recipient) => {
 };
 
 export const getRecipients = async () => {
-    const token = sessionStorage.getItem("userSession");
+    const session = getUserSession();
+    const token = session?.token;
+    if (!token) throw new Error("No token found");
+
     const response = await fetch("http://localhost:5000/recipients", {
         headers: {
             Authorization: `Bearer ${token}`,
@@ -28,7 +37,10 @@ export const getRecipients = async () => {
 };
 
 export const updateRecipient = async (id, recipient) => {
-    const token = sessionStorage.getItem("userSession");
+    const session = getUserSession();
+    const token = session?.token;
+    if (!token) throw new Error("No token found");
+
     const response = await fetch(`http://localhost:5000/recipients/${id}`, {
         method: "PUT",
         headers: {

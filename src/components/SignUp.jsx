@@ -11,7 +11,7 @@ const Signup = () => {
     const handleSignup = async () => {
         try {
             await registerUser(email, password);
-            navigate.push('/login');
+            navigate('/login');
         } catch (error) {
             console.error(error);
         }

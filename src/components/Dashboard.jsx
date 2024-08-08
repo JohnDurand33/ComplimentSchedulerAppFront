@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { getRecipients } from '../logic/recipientLogic';
 import { Card, CardContent, CardMedia, Typography, Button } from '@mui/material';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
     const [recipients, setRecipients] = useState([]);
-    const history = useHistory();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchRecipients = async () => {
@@ -34,7 +34,7 @@ const Dashboard = () => {
                         <CardContent>
                             <Typography variant="h5" component="div">{recipient.name}</Typography>
                             <Typography variant="body2" color="text.secondary">{recipient.relationship}</Typography>
-                            <Button onClick={() => history.push(`/recipient/${recipient.id}`)}>View</Button>
+                            <Button onClick={() => navigate(`/recipient/${recipient.id}`)}>View</Button>
                         </CardContent>
                     </Card>
                 ))}
@@ -47,7 +47,7 @@ const Dashboard = () => {
                     />
                     <CardContent>
                         <Typography variant="h5" component="div">Add Recipient</Typography>
-                        <Button onClick={() => history.push('/create-recipient')}>Add</Button>
+                        <Button onClick={() => navigate('/create-recipient')}>Add</Button>
                     </CardContent>
                 </Card>
             </div>

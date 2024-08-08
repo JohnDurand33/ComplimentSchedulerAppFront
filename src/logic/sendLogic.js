@@ -1,10 +1,10 @@
-export const sendEmail = async (from, to, subject, body) => {
+export const sendEmail = async (to, subject, body, from) => {
     const token = sessionStorage.getItem("userSession");
     const response = await fetch("http://localhost:5000/send-email", {
         method: "POST",
         headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`,
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({ from, to, subject, body }),
     });

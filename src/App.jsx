@@ -1,8 +1,8 @@
 import React, { useState, createContext, useContext } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import Login from './components/Login';
-import Signup from './components/Signup';
+import Signup from './components/SignUp';
 import Dashboard from './components/Dashboard';
 import Settings from './components/Settings';
 import RecipientView from './components/RecipientView';
@@ -32,18 +32,18 @@ const App = () => {
         <AuthContext.Provider value={{ session, setSession, clearSession }}>
             <Router>
                 <Navbar />
-                <Switch>
-                    <Route path="/" exact component={Home} />
-                    <Route path="/login" component={Login} />
-                    <Route path="/signup" component={Signup} />
-                    <Route path="/dashboard" component={Dashboard} />
-                    <Route path="/settings" component={Settings} />
-                    <Route path="/recipient/:id" component={RecipientView} />
-                    <Route path="/create-recipient" component={CreateRecipient} />
-                    <Route path="/new-event" component={NewEvent} />
-                    <Route path="/calendar" component={Calendar} />
-                    <Route path="/custom-message" component={CustomMessage} />
-                </Switch>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/signup" element={<Signup />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/settings" element={<Settings />} />
+                    <Route path="/recipient/:id" element={<RecipientView />} />
+                    <Route path="/create-recipient" element={<CreateRecipient />} />
+                    <Route path="/new-event" element={<NewEvent />} />
+                    <Route path="/calendar" element={<Calendar />} />
+                    <Route path="/custom-message" element={<CustomMessage />} />
+                </Routes>
             </Router>
         </AuthContext.Provider>
     );

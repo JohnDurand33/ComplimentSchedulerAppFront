@@ -19,7 +19,7 @@ const CustomMessage = () => {
         <div>
             <h1>Send Custom Message</h1>
             <TextField label="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-            <TextField label="Message" value={message} onChange={(e) => setMessage(e.target.value)} multiline rows={4} />
+            <TextField label="Message" value={message} onChange={(e) => setMessage(e.target.value)} multiline rows={10} />
             <FormControlLabel
                 control={<Checkbox checked={sendEmailChecked} onChange={(e) => setSendEmailChecked(e.target.checked)} />}
                 label="Send Email"

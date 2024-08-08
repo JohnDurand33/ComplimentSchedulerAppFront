@@ -1,4 +1,5 @@
-import { setUserSession, removeUserSession } from "../utils/session";
+import {
+    setUserSession, removeUserSession, getUserSession } from "../utils/session";
 
 export const registerUser = async (email, password) => {
     const response = await fetch("http://localhost:5000/register", {
@@ -16,6 +17,7 @@ export const registerUser = async (email, password) => {
 };
 
 export const loginUser = async (email, password) => {
+    removeUserSession();
     const response = await fetch("http://localhost:5000/login", {
         method: "POST",
         headers: {
