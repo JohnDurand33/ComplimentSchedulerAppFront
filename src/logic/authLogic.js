@@ -12,6 +12,7 @@ export const registerUser = async (email, password) => {
     if (!response.ok)
         throw new Error(data.message || "Failed to register user");
     return data;
+    
 };
 
 export const loginUser = async (email, password) => {
