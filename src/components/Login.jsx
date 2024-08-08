@@ -12,7 +12,6 @@ const Login = () => {
 
     const handleLogin = async () => {
         try {
-            //logout any potential users already logged in
             logoutUser();
 
             const data = await loginUser(email, password);
