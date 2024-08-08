@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { registerUser } from '../logic/authLogic';
 import { TextField, Button } from '@mui/material';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const handleSignup = async () => {
         try {
             await registerUser(email, password);
-            history.push('/login');
+            navigate.push('/login');
         } catch (error) {
             console.error(error);
         }

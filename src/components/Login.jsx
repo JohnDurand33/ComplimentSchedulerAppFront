@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { loginUser } from '../logic/authLogic';
 import { TextField, Button } from '@mui/material';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../App';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const history = useHistory();
+    const navigate = useNavigate();
     const { setSession } = useAuth();
 
     const handleLogin = async () => {
         try {
             const data = await loginUser(email, password);
             setSession(data.token);
-            history.push('/dashboard');
+            Navigate.push('/dashboard');
         } catch (error) {
             console.error(error);
         }

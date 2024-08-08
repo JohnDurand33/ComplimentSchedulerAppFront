@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { TextField, Button, FormControlLabel, Checkbox } from '@mui/material';
 import { sendEmail } from '../logic/sendLogic';
+import { useNavigate } from 'react-router-dom';
 
 const CustomMessage = () => {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
     const [sendEmailChecked, setSendEmailChecked] = useState(false);
+    const navigate = useNavigate();
 
     const handleSend = async () => {
         if (sendEmailChecked) {
