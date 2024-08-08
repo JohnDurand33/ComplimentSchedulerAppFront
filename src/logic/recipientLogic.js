@@ -1,12 +1,18 @@
-// logic/recipientLogic.js
 import { getUserSession } from "../utils/session";
 
-export const createRecipient = async (recipient) => {
+const apiUrl = import.meta.env.VITE_API_URL;
+
+const getToken = () => {
     const session = getUserSession();
     const token = session?.token;
     if (!token) throw new Error("No token found");
+    return token;
+};
 
-    const response = await fetch("http://localhost:5000/recipients", {
+export const createRecipient = async (recipient) => {
+    const token = getToken();
+
+    const response = await fetch(`${apiUrl}/recipients`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -21,11 +27,9 @@ export const createRecipient = async (recipient) => {
 };
 
 export const getRecipients = async () => {
-    const session = getUserSession();
-    const token = session?.token;
-    if (!token) throw new Error("No token found");
+    const token = getToken();
 
-    const response = await fetch("http://localhost:5000/recipients", {
+    const response = await fetch(`${apiUrl}/recipients`, {
         headers: {
             Authorization: `Bearer ${token}`,
         },
@@ -37,11 +41,9 @@ export const getRecipients = async () => {
 };
 
 export const updateRecipient = async (id, recipient) => {
-    const session = getUserSession();
-    const token = session?.token;
-    if (!token) throw new Error("No token found");
+    const token = getToken();
 
-    const response = await fetch(`http://localhost:5000/recipients/${id}`, {
+    const response = await fetch(`${apiUrl}/recipients/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
