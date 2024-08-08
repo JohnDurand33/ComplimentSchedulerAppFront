@@ -12,20 +12,17 @@ const Login = () => {
 
     const handleLogin = async () => {
         try {
-            // Clear any existing session before attempting to log in
+            //logout any potential users already logged in
             logoutUser();
 
-            // Attempt to log in with the provided credentials
             const data = await loginUser(email, password);
 
             // Set the new session token
             setSession(data.token);
 
-            // Navigate to the dashboard upon successful login
             navigate('/dashboard');
         } catch (error) {
             console.error('Login failed:', error);
-            // Optionally handle error (e.g., display an error message to the user)
         }
     };
 
